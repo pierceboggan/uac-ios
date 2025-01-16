@@ -7,16 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE215AD22D397FEE009FC40B /* AvalancheShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FA8672CE3D759002C091D /* AvalancheShared.framework */; };
+		BE215AD32D397FEE009FC40B /* AvalancheShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FA8672CE3D759002C091D /* AvalancheShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE8FA8452CE3D6E9002C091D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FA8442CE3D6E9002C091D /* WidgetKit.framework */; };
 		BE8FA8472CE3D6E9002C091D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FA8462CE3D6E9002C091D /* SwiftUI.framework */; };
 		BE8FA8582CE3D6EB002C091D /* AvalancheWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BE8FA8422CE3D6E9002C091D /* AvalancheWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BE8FA86F2CE3D759002C091D /* AvalancheShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FA8672CE3D759002C091D /* AvalancheShared.framework */; };
-		BE8FA8702CE3D759002C091D /* AvalancheShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FA8672CE3D759002C091D /* AvalancheShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE8FA86F2CE3D759002C091D /* AvalancheShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FA8672CE3D759002C091D /* AvalancheShared.framework */; platformFilter = ios; };
+		BE8FA8702CE3D759002C091D /* AvalancheShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FA8672CE3D759002C091D /* AvalancheShared.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE8FA87A2CE3D8C4002C091D /* AvalancheShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FA8672CE3D759002C091D /* AvalancheShared.framework */; };
 		BE8FA87B2CE3D8C4002C091D /* AvalancheShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FA8672CE3D759002C091D /* AvalancheShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BE215AD42D397FEE009FC40B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE8FA81C2CE3D0ED002C091D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE8FA8662CE3D759002C091D;
+			remoteInfo = AvalancheShared;
+		};
 		BE8FA8562CE3D6EB002C091D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BE8FA81C2CE3D0ED002C091D /* Project object */;
@@ -41,6 +50,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		BE215AD62D397FEE009FC40B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BE215AD32D397FEE009FC40B /* AvalancheShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE8FA8592CE3D6EB002C091D /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,6 +97,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BE215AA72D3977CF009FC40B /* AvalancheMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvalancheMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8FA8242CE3D0ED002C091D /* Utah Avalanche.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Utah Avalanche.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8FA8422CE3D6E9002C091D /* AvalancheWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AvalancheWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8FA8442CE3D6E9002C091D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -86,6 +107,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BE215AD82D398F76009FC40B /* Exceptions for "AvalancheMacOS" folder in "AvalancheMacOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = BE215AA62D3977CF009FC40B /* AvalancheMacOS */;
+		};
 		BE8FA85C2CE3D6EB002C091D /* Exceptions for "AvalancheWidget" folder in "AvalancheWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -93,28 +121,19 @@
 			);
 			target = BE8FA8412CE3D6E8002C091D /* AvalancheWidgetExtension */;
 		};
-		BE8FA8712CE3D759002C091D /* Exceptions for "AvalancheShared" folder in "AvalancheShared" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			publicHeaders = (
-				AvalancheShared.h,
-			);
-			target = BE8FA8662CE3D759002C091D /* AvalancheShared */;
-		};
-		BE8FA8802CE3DB6B002C091D /* Exceptions for "Utah Avalanche" folder in "Utah Avalanche" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Utah-Avalanche-Info.plist",
-			);
-			target = BE8FA8232CE3D0ED002C091D /* Utah Avalanche */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		BE8FA8262CE3D0ED002C091D /* Utah Avalanche */ = {
+		BE215AA82D3977CF009FC40B /* AvalancheMacOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				BE8FA8802CE3DB6B002C091D /* Exceptions for "Utah Avalanche" folder in "Utah Avalanche" target */,
+				BE215AD82D398F76009FC40B /* Exceptions for "AvalancheMacOS" folder in "AvalancheMacOS" target */,
 			);
+			path = AvalancheMacOS;
+			sourceTree = "<group>";
+		};
+		BE8FA8262CE3D0ED002C091D /* Utah Avalanche */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Utah Avalanche";
 			sourceTree = "<group>";
 		};
@@ -128,15 +147,20 @@
 		};
 		BE8FA8682CE3D759002C091D /* AvalancheShared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				BE8FA8712CE3D759002C091D /* Exceptions for "AvalancheShared" folder in "AvalancheShared" target */,
-			);
 			path = AvalancheShared;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BE215AA42D3977CF009FC40B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE215AD22D397FEE009FC40B /* AvalancheShared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE8FA8212CE3D0ED002C091D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -172,6 +196,7 @@
 				BE8FA8262CE3D0ED002C091D /* Utah Avalanche */,
 				BE8FA8482CE3D6E9002C091D /* AvalancheWidget */,
 				BE8FA8682CE3D759002C091D /* AvalancheShared */,
+				BE215AA82D3977CF009FC40B /* AvalancheMacOS */,
 				BE8FA8432CE3D6E9002C091D /* Frameworks */,
 				BE8FA8252CE3D0ED002C091D /* Products */,
 			);
@@ -183,6 +208,7 @@
 				BE8FA8242CE3D0ED002C091D /* Utah Avalanche.app */,
 				BE8FA8422CE3D6E9002C091D /* AvalancheWidgetExtension.appex */,
 				BE8FA8672CE3D759002C091D /* AvalancheShared.framework */,
+				BE215AA72D3977CF009FC40B /* AvalancheMacOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,6 +235,30 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		BE215AA62D3977CF009FC40B /* AvalancheMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE215AC92D3977D3009FC40B /* Build configuration list for PBXNativeTarget "AvalancheMacOS" */;
+			buildPhases = (
+				BE215AA32D3977CF009FC40B /* Sources */,
+				BE215AA42D3977CF009FC40B /* Frameworks */,
+				BE215AA52D3977CF009FC40B /* Resources */,
+				BE215AD62D397FEE009FC40B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE215AD52D397FEE009FC40B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BE215AA82D3977CF009FC40B /* AvalancheMacOS */,
+			);
+			name = AvalancheMacOS;
+			packageProductDependencies = (
+			);
+			productName = AvalancheMacOS;
+			productReference = BE215AA72D3977CF009FC40B /* AvalancheMacOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		BE8FA8232CE3D0ED002C091D /* Utah Avalanche */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE8FA8322CE3D0EF002C091D /* Build configuration list for PBXNativeTarget "Utah Avalanche" */;
@@ -289,9 +339,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1610;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
+					BE215AA62D3977CF009FC40B = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					BE8FA8232CE3D0ED002C091D = {
 						CreatedOnToolsVersion = 16.1;
 					};
@@ -320,11 +373,19 @@
 				BE8FA8232CE3D0ED002C091D /* Utah Avalanche */,
 				BE8FA8412CE3D6E8002C091D /* AvalancheWidgetExtension */,
 				BE8FA8662CE3D759002C091D /* AvalancheShared */,
+				BE215AA62D3977CF009FC40B /* AvalancheMacOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BE215AA52D3977CF009FC40B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE8FA8222CE3D0ED002C091D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -349,6 +410,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BE215AA32D3977CF009FC40B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE8FA8202CE3D0ED002C091D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,6 +441,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BE215AD52D397FEE009FC40B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE8FA8662CE3D759002C091D /* AvalancheShared */;
+			targetProxy = BE215AD42D397FEE009FC40B /* PBXContainerItemProxy */;
+		};
 		BE8FA8572CE3D6EB002C091D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BE8FA8412CE3D6E8002C091D /* AvalancheWidgetExtension */;
@@ -380,6 +453,7 @@
 		};
 		BE8FA86E2CE3D759002C091D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = BE8FA8662CE3D759002C091D /* AvalancheShared */;
 			targetProxy = BE8FA86D2CE3D759002C091D /* PBXContainerItemProxy */;
 		};
@@ -391,6 +465,62 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		BE215ACA2D3977D3009FC40B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AvalancheMacOS/AvalancheMacOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AvalancheMacOS/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AvalancheMacOS/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pierceboggan.AvalancheMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BE215ACB2D3977D3009FC40B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AvalancheMacOS/AvalancheMacOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AvalancheMacOS/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AvalancheMacOS/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pierceboggan.AvalancheMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		BE8FA8302CE3D0EF002C091D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -533,6 +663,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pierceboggan.Utah-Avalanche";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -562,6 +696,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pierceboggan.Utah-Avalanche";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -576,6 +714,7 @@
 				CODE_SIGN_ENTITLEMENTS = AvalancheWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H24XX45L33;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AvalancheWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AvalancheWidget;
@@ -603,6 +742,7 @@
 				CODE_SIGN_ENTITLEMENTS = AvalancheWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H24XX45L33;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AvalancheWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AvalancheWidget;
@@ -646,7 +786,10 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pierceboggan.Utah-Avalanche.AvalancheShared";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -680,7 +823,10 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pierceboggan.Utah-Avalanche.AvalancheShared";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -693,6 +839,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BE215AC92D3977D3009FC40B /* Build configuration list for PBXNativeTarget "AvalancheMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE215ACA2D3977D3009FC40B /* Debug */,
+				BE215ACB2D3977D3009FC40B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BE8FA81F2CE3D0ED002C091D /* Build configuration list for PBXProject "Utah Avalanche" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

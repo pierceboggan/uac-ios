@@ -37,7 +37,7 @@ struct AvalancheConditions: Codable {
     }
     
     var cleanAdvisoryDate: String {
-        cleanText(advisoryDateString)
+        avalancheData.formattedAdvisoryDate
     }
     
     private func cleanText(_ text: String) -> String {
@@ -52,6 +52,7 @@ struct AvalancheConditions: Codable {
 struct ContentView: View {
     @State private var conditions: AvalancheConditions?
     @State private var selectedRegion = "salt-lake"
+    @State private var lastFetchTime: Date? = nil
     
     let regions = ["logan", "ogden", "uintas", "salt-lake", "provo", "skyline", "moab", "abajos", "southwest"]
     
@@ -99,6 +100,12 @@ struct ContentView: View {
     }
     
     private func fetchConditions() {
+        let now = Date()
+        if let lastFetchTime = lastFetchTime, now.timeIntervalSince(lastFetchTime) < 3600 {
+            return
+        }
+        lastFetchTime = now
+        
         guard let url = URL(string: "https://utahavalanchecenter.org/forecast/\(selectedRegion)/json") else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in

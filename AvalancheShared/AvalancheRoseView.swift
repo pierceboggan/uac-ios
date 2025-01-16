@@ -8,17 +8,20 @@ public struct AvalancheRoseView: View {
     }
     
     public var body: some View {
-        if let url = URL(string: "https://utahavalanchecenter.org/" + avalancheData.overallDangerRoseImage) {
-            AsyncImage(url: url) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-            } placeholder: {
-                ProgressView()
+        GeometryReader { geometry in
+            if let url = URL(string: "https://utahavalanchecenter.org/" + avalancheData.overallDangerRoseImage) {
+                AsyncImage(url: url) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                } placeholder: {
+                    ProgressView()
+                }
+                .padding(5)
+            } else {
+                Text("Unable to load rose")
             }
-            .padding(5)
-        } else {
-            Text("Unable to load rose")
         }
     }
 }
@@ -28,4 +31,4 @@ struct AvalancheRoseView_Previews: PreviewProvider {
         AvalancheRoseView(avalancheData: .placeholder)
             .frame(width: 200, height: 200)
     }
-} 
+}
