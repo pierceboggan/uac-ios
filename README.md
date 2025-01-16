@@ -5,4 +5,5 @@ Read Utah Avalanche Center's daily forecast in a simple iOS app. The app uses th
 <p float="left">
   <img src="https://github.com/user-attachments/assets/c3fb7ae3-8910-4c4c-8573-5d2b6ce60c26" width="400" />
   <img src="https://github.com/user-attachments/assets/771962fd-8042-4d74-b9fe-b28ad9f2bef5" width="400" />
+  <imag src="https://github.com/user-attachments/assets/ba1cad64-5138-4a73-b6a9-c27c8b10b9cb" width="400" />
 </p>
