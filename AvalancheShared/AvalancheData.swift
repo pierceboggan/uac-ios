@@ -26,6 +26,16 @@ public struct AvalancheData: Codable {
             overallDangerRoseImage: ""
         )
     }
+    
+    public var formattedAdvisoryDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        if let date = formatter.date(from: advisoryDateString) {
+            formatter.dateFormat = "EEEE, MMMM d"
+            return formatter.string(from: date)
+        }
+        return advisoryDateString
+    }
 }
 
 public struct AvalancheResponse: Codable {
@@ -52,4 +62,4 @@ public struct Advisory: Codable {
     enum CodingKeys: String, CodingKey {
         case advisory
     }
-} 
+}
