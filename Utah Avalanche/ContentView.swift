@@ -6,51 +6,18 @@
 //
 
 import SwiftUI
+import AvalancheShared
 
 struct AvalancheResponse: Codable {
     let advisories: [Advisory]
 }
 
 struct Advisory: Codable {
-    let advisory: AvalancheConditions
-}
-
-struct AvalancheConditions: Codable {
-    let advisoryDateString: String
-    let overallDangerRoseImage: String
-    let conditions: String
-    let mountainWeather: String
-    
-    enum CodingKeys: String, CodingKey {
-        case advisoryDateString = "date_issued"
-        case overallDangerRoseImage = "overall_danger_rose_image"
-        case conditions = "current_conditions"
-        case mountainWeather = "mountain_weather"
-    }
-    
-    var cleanConditions: String {
-        cleanText(conditions)
-    }
-    
-    var cleanMountainWeather: String {
-        cleanText(mountainWeather)
-    }
-    
-    var cleanAdvisoryDate: String {
-        avalancheData.formattedAdvisoryDate
-    }
-    
-    private func cleanText(_ text: String) -> String {
-        text.replacingOccurrences(of: "&nbsp;", with: " ")
-            .replacingOccurrences(of: "\r", with: "")
-            .replacingOccurrences(of: "\t", with: "")
-            .replacingOccurrences(of: "  ", with: " ")
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-    }
+    let advisory: AvalancheData
 }
 
 struct ContentView: View {
-    @State private var conditions: AvalancheConditions?
+    @State private var conditions: AvalancheData?
     @State private var selectedRegion = "salt-lake"
     @State private var lastFetchTime: Date? = nil
     
@@ -79,7 +46,7 @@ struct ContentView: View {
                         }
                         
                         VStack(alignment: .leading, spacing: 15) {
-                            InfoSection(title: "Advisory Date", content: conditions.cleanAdvisoryDate)
+                            InfoSection(title: "Advisory Date", content: conditions.formattedAdvisoryDate)
                             InfoSection(title: "Conditions", content: conditions.cleanConditions)
                             InfoSection(title: "Mountain Weather", content: conditions.cleanMountainWeather)
                         }
@@ -90,7 +57,8 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Avalanche Conditions")
-            .onChange(of: selectedRegion) { _ in
+            .onChange(of: selectedRegion) { newRegion in
+                print("Region changed to: \(newRegion)")
                 fetchConditions()
             }
             .onAppear {
@@ -100,12 +68,7 @@ struct ContentView: View {
     }
     
     private func fetchConditions() {
-        let now = Date()
-        if let lastFetchTime = lastFetchTime, now.timeIntervalSince(lastFetchTime) < 3600 {
-            return
-        }
-        lastFetchTime = now
-        
+        print("Fetching conditions for region: \(selectedRegion)")
         guard let url = URL(string: "https://utahavalanchecenter.org/forecast/\(selectedRegion)/json") else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -115,6 +78,7 @@ struct ContentView: View {
                     let response = try decoder.decode(AvalancheResponse.self, from: data)
                     if let firstAdvisory = response.advisories.first {
                         DispatchQueue.main.async {
+                            print("Updating conditions state")
                             self.conditions = firstAdvisory.advisory
                         }
                     }
